@@ -1,15 +1,41 @@
-syntax on
 filetype plugin indent on
-let g:sclangTerm="open -a Terminal.app"
-set t_Co=256
-let mapleader = ","
-let maplocalleader=","
-execute pathogen#infect()
-colorscheme nightsky
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'preservim/nerdtree'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 "gui
 set guifont=Courier:h12
 hi Comment ctermfg=red
+colorscheme tender
+syntax on
+let g:airline_theme='powerlineish'
+let g:airline_section_warning = ''
+let g:sclangTerm="open -a Terminal.app"
+set t_Co=256
+let mapleader = ","
+let maplocalleader=","
 
 "LEADER FUNCTIONS
 nnoremap <leader>( i(<esc>l%a)<esc>
@@ -76,8 +102,6 @@ set smartcase
 set laststatus=2
 set list
 set listchars=tab:\~\ 
-let g:airline_theme='base16_ashes'
-let g:airline_section_warning = ''
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'command-t')
 call add(g:pathogen_disabled, 'csound')
