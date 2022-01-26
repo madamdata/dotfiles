@@ -14,27 +14,19 @@ hi Comment ctermfg=red
 "LEADER FUNCTIONS
 nnoremap <leader>( i(<esc>l%a)<esc>
 nnoremap <leader>) i(<esc>l%2wa)<esc>
-"<leader>u duplicate line, go to same cursor position on copied line, ciw.
-"<leader>U - same thing, but comments out original line. 
-"<leader>U - same thing, but comments out original line.
-nnoremap <leader>u m`yyp``jciw
-nmap <leader>U m`<leader>cyp``jciw 
-nmap <leader>r <F6>
 nmap <leader>s :w<cr>
-nmap <leader>k <F12>
-nmap <leader>p <F5>
 "replace all spaces with escape-spaces (for file finding) 
 nnoremap <leader>\ :%s/\s/\\ /g<cr>
+"edit vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>; :normal! mqA;<esc>`q
-nnoremap <leader>l <esc>f,w
-nnoremap <leader>h <esc>F,b
-"nnoremap <leader>y f,<esc>a<cr><esc>
 
 "yank to clipboard in visual mode
-vnoremap <leader>yc "+y
+vnoremap <leader>y "+y
 "paste from clipboard in normal mode
-nnoremap <leader>pc "+p
+nnoremap <leader>p "+p
+inoremap <leader>,p <esc>"+p
+
 function! Nextcomma()
 	if search(',','n',line('.')) != 0
 		exec "normal! f,a\<cr>\<esc>"
@@ -44,7 +36,6 @@ function! Nextcomma()
 		exec "normal! f)i\<cr>\<esc>"
 	endif
 endfunction
-nnoremap <leader>y :call Nextcomma()<cr> 
 nnoremap <leader>1 /part 1<cr>jz.
 nnoremap <leader>2 /part 2<cr>jz.
 nnoremap <leader>3 /part 3<cr>jz.
