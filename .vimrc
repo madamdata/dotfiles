@@ -53,6 +53,7 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 inoremap <leader>,p <esc>"+p
 
+nnoremap <leader>m :marks<cr>
 function! Nextcomma()
 	if search(',','n',line('.')) != 0
 		exec "normal! f,a\<cr>\<esc>"
@@ -132,6 +133,7 @@ augroup filetype_txt
 	autocmd!
 	autocmd FileType text set wrapmargin=78
 	autocmd FileType text set wrap
+	autocmd Filetype text set textwidth=62
 augroup END
 
 "CtrlP"
